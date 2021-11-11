@@ -1,18 +1,14 @@
-s = input()
-s1 = input()
+import sys
+s1= sys.stdin.readline().rstrip()
+s2 = sys.stdin.readline().rstrip()
 
-result = 0
+dp = [[0]*(len(s2)+1) for _ in range(len(s1)+1)]
 
-for check in range(0,len(s)):
-    checkpoint = 0
-    temp = 0
-    for i in range(check, len(s)):
-        for j in range(checkpoint, len(s1)):
-            if s[i] == s1[j]:
-                checkpoint = j+1
-                temp +=1
-                break
-    if temp > result:
-        result = temp
+for i in range(1,len(s1)+1):
+    for j in range(1,len(s2)+1):
+        if s1[i-1] == s2[j-1]:
+            dp[i][j] = dp[i-1][j-1]+1
+        else:
+            dp[i][j] = max(dp[i-1][j],dp[i][j-1])
 
-print(result)
+print(dp[-1][-1])
