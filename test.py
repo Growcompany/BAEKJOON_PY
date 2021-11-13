@@ -1,16 +1,10 @@
-import sys
+N = int(input())
+numbers = []
+for _ in range(N):
+    num = int(input())
+    numbers.append(num)
 
-input = sys.stdin.readline
+numbers.sort()
 
-M, N = map(int,input().split())
-
-list = [False for _ in range(N+1)]
-
-for i in range(2, int(N**(1/2))+1):
-    if list[i]== False:
-        for j in range(i, N+1, i):
-            list[j] = True
-    
-for i in range(M, N+1):
-    if list[i] == False:
-        print(i)
+for num in numbers:
+    print(num)
