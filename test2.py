@@ -1,20 +1,15 @@
-import sys
-input = sys.stdin.readline
+m, n = map(int, input().split())
 
-N, K = map(int, input().split())
-item = [(0,0)]
+def isprime(m, n):
+  n += 1                            # for문 사용을 위한 n += 1
+  prime = [True] * n                # n개의 [True]가 있는 리스트 생성
+  for i in range(2, int(n**0.5)+1): # n의 제곱근까지만 검사
+    if prime[i]:                    # prime[i]가 True일때
+      for j in range(2*i, n, i):    # prime 내 i의 배수들을 False로 변환
+        prime[j] = False
 
-for _ in range(N):
-    W, V = map(int, input().split())
-    item.append((W,V))
+  for i in range(m, n):
+    if i > 1 and prime[i] == True:  # 1 이상이면서 남은 소수들을 출력
+      print(i)
 
-dp = [[0]*(K+1) for _ in range(N+1)]
-
-for i in range(1,N+1):
-    for j in range(1,K+1):
-        if j >= item[i][0]:
-            dp[i][j] = max(item[i][1]+dp[i-1][j-item[i][0]],dp[i-1][j])
-        else:
-            dp[i][j] = dp[i-1][j]
-
-print(dp[-1][-1])
+isprime(m, n)
