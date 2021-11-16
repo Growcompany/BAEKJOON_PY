@@ -1,0 +1,23 @@
+1. heapq 사용법
+
+    import heapq #heapq 불러오기
+    
+    q = []
+    
+    heapq.heappush(q, num) #리스트를 heapq에 넣어서 변환(?)하고 원하는 숫자 넣기
+    
+    heapq.heappop(q) #q에서 가장 작은 값인 즉, 최소 힙의 값을 반환한다.
+    
+    heapq.heapify(q) #일반 리스트를 바로 힙으로 바꿔준다.
+    
+2. deque 사용법
+
+    from collections import deque 
+    
+    q = deque()
+    
+    q.append(num)
+    
+    q.pop()
+    
+    q.popleft() # 일반 리스트 즉 파이썬에서 지원하는 스택기능을 하는 리스트랑 달리 큐의 기능까지도 가능하게 해준다.
