@@ -1,19 +1,17 @@
 N, M = map(int, input().split())
 
+list_number = []
+
 def print_number():
-    for i in range(1,N):
-        
+    if len(list_number) == M:
+        print(' '.join(list_number))
+        return
 
-for i in range(1,N):
-    for j in range(1,N):
-        print(i, end = ' ')
-        print(j)
+    for i in range(1,N+1):
+        list_number.append(str(i))
+        print_number()
+        list_number.pop()
 
-for i in range(1,N):
-    for j in range(1,N):
-        for k in range(1,N):
-            print(i, end = ' ')
-            print(j, end = ' ')
-            print(k)
+print_number()
     
         
