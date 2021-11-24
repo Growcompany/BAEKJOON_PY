@@ -32,7 +32,7 @@ for i in range(0, len(plus_num), M):
 for i in range(0, len(minus_num), M):
     if not -minus_num[i] == max_num:
         result += -2*minus_num[i]
-
+zubulun86
 result += max_num
 print(result)
     
