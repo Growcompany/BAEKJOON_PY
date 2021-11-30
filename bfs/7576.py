@@ -31,9 +31,15 @@ def bfs():
                 if tomatoes[xx][yy] == 0:
                     tomatoes[xx][yy] = 1
                     q.append((xx,yy,cnt+1))
-    return result
 
-print(bfs())
-                    
-        
+    check = True
+    for line in tomatoes:
+        for i in range(len(line)):
+            if line[i] == 0:
+                check = False
+    if check:
+        return result
+    else:
+        return -1
     
+print(bfs())   
