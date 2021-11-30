@@ -20,7 +20,7 @@ while q:
         imoticon[x-1][y] = imoticon[x][y]+1
         q.append((x-1,y))
 
-result =0
+result =1e9
 for i in range(S):
     if imoticon[S][i] >= 1:
         result = min(imoticon[S][i],result)
