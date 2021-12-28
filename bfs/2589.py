@@ -18,6 +18,7 @@ def check(x,y):
     
     q= deque()
     q.append((x,y,0))
+    visited[x][y] = 1
     while q:
         a, b, cnt = q.popleft()
         
