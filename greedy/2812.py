@@ -3,15 +3,15 @@ import sys
 input = sys.stdin.readline
 
 N, K = map(int,input().split())
-num = list(str(input()))
+num = list(input())
 result = []
+del_cnt = K
 
-for n in num:  
-    while result[-1]<n and K>0:
-        K -= 1
+for i in range(N):
+    while del_cnt>0 and result and int(result[-1])<int(num[i]):
+        del_cnt -= 1
         result.pop()
-    else:
-        break
-    result.append(str(n))
     
-print(''.join(result))
+    result.append(num[i])
+    
+print(''.join(result[:N-K]))
