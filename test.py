@@ -1,5 +1,3 @@
-link = [i for i in range(1,6)]
-temp1 = (1,2,3)
-temp = [x for x in [i for i in range(1,6)] if x not in temp1]
-print(link)
-print(temp)
+arr = [0,1,2,3,4]
+temp_sum = sum(arr[0:5])
+print(temp_sum)
