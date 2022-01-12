@@ -1,4 +1,4 @@
-#너무 내 스타일 야매로 풀었는데 ㅋㅋ 풀리긴하넹
+#너무 내 스타일 야매로 풀었는데 ㅋㅋ 풀리긴하넹ㅇ
 import sys
 from collections import deque
 input = sys.stdin.readline
