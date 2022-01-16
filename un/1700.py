@@ -8,22 +8,28 @@ order = list(map(int,input().split()))
 result = 0
 
 if N<K:
-    plug = order[:N]
-    for i in range(N,K):
+    plug = []
+
+    for i in range(K):
+        check = False
+        if len(plug)<N:
+            if not order[i] in plug:
+                plug.append(order[i])
+            check = True
+            continue
         if order[i] in plug:
-            print("같은거라 패스")
-            print(plug)
+            #print("같은거라 패스")
+            #print(plug)
             continue
         
         del_num_index = -1
         farthest_index = -1
 
-        check = False
         for j in range(N):
             if not plug[j] in order[i:]:
-                print("뒤에 없는 가장 하빠리라 제거, 제거숫자:",plug[j])
+                #print("뒤에 없는 가장 하빠리라 제거, 제거숫자:",plug[j])
                 plug[j] = order[i]
-                print(plug)
+                #print(plug)
                 result +=1
                 check = True
                 break
@@ -35,9 +41,9 @@ if N<K:
         if check:
             continue
         else:
-            print("뒤에 있는 거중에 가장 멀리 있는거 제일 멀리 측정된 인덱스:",del_num_index,"제거숫자:",plug[del_num_index])
+            #print("뒤에 있는 거중에 가장 멀리 있는거 제일 멀리 측정된 인덱스:",del_num_index,"제거숫자:",plug[del_num_index])
             plug[del_num_index] = order[i]
-            print(plug)
+            #print(plug)
             result +=1
                     
 print(result)
