@@ -1,0 +1,62 @@
+*파이썬의 기본 트리구조를 구현하기 위한 세팅(?)*
+
+class Node:
+    def __init__(self, data):
+        self.left = None
+        self.right = None
+        self.data = data
+        
+root = Node(10)
+
+root.left = Node(34)
+root.right = Node(89)
+root.left.left = Node(45)
+root.left.right = Node(50)
+
+---구조-----
+     10
+    /  \
+  34    89
+ /  \
+45  50
+
+def preorder(node): #전위 순회 루트 - 왼쪽 자식 - 오른쪽 자식
+    if node:
+        print(node.data)
+        preorder(node.left)
+        preorder(node.right)
+        
+------출력-------
+10
+34
+45
+50
+89
+
+def inorder(node): #중위 순회는 [왼쪽 자식 - 루트 - 오른쪽 자식]
+    if node:
+        inorder(node.left)
+        print(node.data)
+        inorder(node.right)
+        
+출력:
+
+45 
+34 
+50 
+10 
+89
+
+def postorder(node): #후위 순회는 [왼쪽 자식 - 오른쪽 자식 - 루트]
+    if node:
+        postorder(node.left)
+        postorder(node.right)
+        print(node.data)
+        
+출력:
+
+45
+50
+34
+89
+10
