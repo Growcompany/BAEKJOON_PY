@@ -11,7 +11,7 @@ class Node: #기본적인 트리 구조 클래스
 
 N = int(input())
 
-tree = {}
+tree = {} # 키값을 가진 딕셔너리 구조로 하기위함 ㅇㅇ
 depth = 1
 column_cnt = 1
 level_min = [N for _ in range(N+1)]
@@ -40,7 +40,7 @@ def inorder(node, lev):
         inorder(tree[node.left_node], lev+1) #한번씩 더 돌 수록 현재 노드의 레벨을 더해준다
 
     #왼쪽 돌고 지금 현재 카운트 값을 다 지정하는거니까 중위순회
-    print(node.data)
+    #print(node.data)
     level_min[lev] = min(level_min[lev], column_cnt)
     level_max[lev] = max(level_max[lev], column_cnt)
     column_cnt += 1
@@ -49,3 +49,11 @@ def inorder(node, lev):
         inorder(tree[node.right_node], lev+1)
         
 inorder(tree[root], 1)
+
+result_level = 0
+result_width = -1
+for i in range(1,depth+1):
+     if result_width <level_max[i]-level_min[i]+1:
+            result_width = level_max[i]-level_min[i]+1
+            result_level = i
+print(result_level,result_width)
