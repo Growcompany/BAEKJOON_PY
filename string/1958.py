@@ -19,4 +19,8 @@ for i in range(1,len(str1)+1):
                 dp[i][j][k] = max(dp[i-1][j][k],dp[i][j-1][k],dp[i][j][k-1],dp[i-1][j-1][k-1])
                 
 
+<<<<<<< HEAD
 print(dp[len(str1)][len(str2)][len(str3)])
+=======
+print(dp[len(str1)][len(str2)][len(str3)])
+>>>>>>> d132099400117257d56464fc01824e571c32a33f
